@@ -7,8 +7,8 @@ import DoughnutChart from './DoughnutChart';
 import PieChart from './pieChart';
 import AreaChart from './AreaChart';
 import SpiderChart from './SpiderChart';
-import ColumnChart from './ColumnChart';
 import { PlotterChart } from './PlotterChart';
+
 Chart.register(CategoryScale);
 
 const index = () => {
@@ -30,10 +30,6 @@ const index = () => {
         <span className="headText">Pie Chart</span>
         <div className="sub-container">
           <PieChart />
-        </div>
-        <span className="headText">Column Chart</span>
-        <div className="sub-container">
-          <ColumnChart />
         </div>
 
         <span className="headText">Area Chart</span>
