@@ -1,9 +1,26 @@
-.logout{
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-end;
-    margin: 1%;
-    cursor: pointer;
-    text-decoration: underline;
-    background-color: black;
+.logout {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  margin: 1%;
+  cursor: pointer;
+  text-decoration: underline;
+  color: black;
+  //background-color: black;
+}
+
+.navlink {
+  text-decoration: none;
+  color: black;
+  padding: 2% 0%;
+}
+
+.hideList {
+  display: none;
+}
+
+@media (max-width: '990px') {
+  .hideList {
+    display: block;
+  }
 }
