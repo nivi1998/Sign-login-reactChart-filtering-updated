@@ -1,0 +1,61 @@
+body {
+opacity: 1;
+  background: rgb(10, 10, 10);
+  background-image: linear-gradient(to right bottom, #123b4a, #1c2f3f, #202432, #1e1a23, #171116, #120c10, #0a0608, #000000, #000000, #000000, #44007245, #36045780);
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow: scroll;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center top;
+  height: 100vh;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.centerDiv{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.headText{
+  font-size: medium;
+  font-weight: bolder;
+  margin: 1%;
+  color: antiquewhite;
+}
+
+.setMargin{
+  margin: 2px;
+}
+
+.sortImage{
+  width: 8px;
+  margin: 1px;
+}
+
+.chart{
+  width: 98% !important;
+  display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #232135;
+    border-radius: 5px;
+}
+
+.setPattern{
+  display: flex;
+  flex-direction: column;
+}
+
+.sub-container{
+  background-color: #000000;
+}

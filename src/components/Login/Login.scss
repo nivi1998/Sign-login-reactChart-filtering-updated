@@ -1,0 +1,33 @@
+#login{
+    .container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 6% 8%;
+        background: #232135;
+        width: 80%;
+        padding: 5%;
+border-radius: 5px;
+    }
+
+    .sub-box{
+        width: 100%;
+    }
+
+    .setMargin{
+margin-top: 10%;
+    }
+
+    .mt-5{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 30px;
+        font-weight: bolder;
+    }
+
+    .aligment{
+        display: flex;
+        flex-direction: column;
+    }
+}
