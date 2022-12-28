@@ -1,7 +1,5 @@
 .Layout {
   &__wrapper {
-
-
     @media (min-width: 1200px) {
       &::-webkit-scrollbar {
         width: 10px;
@@ -18,9 +16,21 @@
     }
   }
 
-    
-
   .Layout__header {
-    background-color:black
+    background-color: black;
+  }
+}
+
+.sideHeaderHide {
+  display: block;
+}
+
+@media (max-width: 990px) {
+  .sideHeaderHide {
+    display: none !important;
+  }
+
+  .childrenStyle {
+    margin: 2%;
   }
 }
