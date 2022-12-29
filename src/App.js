@@ -11,17 +11,17 @@ import './App.css';
 let persistor = persistStore(store);
 
 function App() {
-	return (
-		<Provider store={store}>
-			<PersistGate persistor={persistor}>
-				<BrowserRouter>
-					<Layout>
-						<Routes />
-					</Layout>
-				</BrowserRouter>
-			</PersistGate>
-		</Provider>
-	);
+  return (
+    <Provider store={store}>
+      <PersistGate persistor={persistor}>
+        <BrowserRouter>
+          <Layout>
+            <Routes />
+          </Layout>
+        </BrowserRouter>
+      </PersistGate>
+    </Provider>
+  );
 }
 
 export default App;

@@ -1,11 +1,13 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import { Formik, Form, ErrorMessage, Field } from 'formik';
 import * as Yup from 'yup';
-import { connect } from 'react-redux';
-import { reduxLogin } from '../../redux/features/login';
+// import { reduxLogin } from '../../redux/features/login';
 import { redirect, Navigate } from 'react-router-dom';
 import { APP_ROUTES } from '../../global/constant';
+import { setToken } from '../../redux/features/login/index';
+
 import Loader from '../loader';
+import { useDispatch, useSelector } from 'react-redux';
 import './Login.scss';
 
 const LoginSchema = Yup.object().shape({
@@ -17,23 +19,16 @@ const LoginSchema = Yup.object().shape({
   // 	.required('Password is required'),
 });
 
-class Login extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      loading: '',
-    };
-  }
-  navigateTO = () => {
-    window.location.href = APP_ROUTES.ROUTE_REGISTER;
-    // <Navigate to="/register" />;
-  };
-  render() {
-    return (
+const Index = () => {
+  const dispatch = useDispatch();
+  const registerData = useSelector((state) => state?.userCollection?.userData);
+  const Data = useSelector((state) => state);
+  const [loading, setLoading] = useState(false);
+  return (
+    <div>
       <div id="login">
         <div className="container">
-          {this.props.loading ? (
+          {loading ? (
             <Loader />
           ) : (
             <div className="row">
@@ -41,10 +36,19 @@ class Login extends Component {
                 <Formik
                   initialValues={{ username: '', password: '' }}
                   validationSchema={LoginSchema}
-                  onSubmit={(values) => {
-                    console.log(values);
-                    this.props.dispatch(reduxLogin(JSON.stringify(values)));
-                    console.log(JSON.stringify(values));
+                  onSubmit={(submittedValues) => {
+                    const abc = registerData.some((storedValue) => {
+                      console.log('Data:::', Data);
+                      console.log('registerData:::', submittedValues);
+
+                      return (
+                        storedValue?.username === submittedValues?.username &&
+                        storedValue?.password === submittedValues?.password
+                      );
+                    });
+                    dispatch(setToken(abc));
+                    console.log('abc', abc);
+                    window.location.href = APP_ROUTES.ROUTE_HOME;
                   }}
                 >
                   <div className="sub-box">
@@ -100,12 +104,13 @@ class Login extends Component {
                 </div>
                 <div
                   className="headText"
-                  onClick={() => {
+                  onClick={() =>
                     // redirect(APP_ROUTES.ROUTE_REGISTER);
                     // // alert();
-                    this.navigateTO();
+                    // this.navigateTO();
                     // <Navigate to="/register" />;
-                  }}
+                    (window.location.href = '/register')
+                  }
                 >
                   Click Here
                 </div>
@@ -114,14 +119,8 @@ class Login extends Component {
           )}
         </div>
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
 
-function mapStateToProps(state) {
-  return {
-    loading: state.login.loading,
-  };
-}
-
-export default connect(mapStateToProps)(Login);
+export default Index;

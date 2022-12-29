@@ -4,38 +4,40 @@ import { persistReducer } from 'redux-persist';
 import loginReducer from './features/login';
 import registerReducer from './features/register';
 import productReducer from './features/product';
+import userCollectionReducer from './features/registerData';
 
 const persistConfig = {
-	key: 'rootCreateForm',
-	version: 1,
-	storage,
-	blacklist: [],
+  key: 'rootCreateForm',
+  version: 1,
+  storage,
+  // blacklist: [],
 };
 
 const reducer = combineReducers({
-	login: loginReducer,
-	register: registerReducer,
-	product: productReducer,
+  login: loginReducer,
+  register: registerReducer,
+  product: productReducer,
+  userCollection: userCollectionReducer,
 });
 
 const rootReducer = (state, action) => {
-	if (action.type === 'login/USER_LOGOUT') {
-		storage.removeItem('persist:root');
-		return reducer(undefined, action);
-	}
-	return reducer(state, action);
+  // if (action.type === 'login/USER_LOGOUT') {
+  // 	storage.removeItem('persist:root');
+  // 	return reducer(undefined, action);
+  // }
+  return reducer(state, action);
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 const store = configureStore({
-	reducer: persistedReducer,
-	middleware: (getDefaultMiddleware) =>
-		getDefaultMiddleware({
-			immutableCheck: false,
-			serializableCheck: false,
-			thunk: true,
-		}),
+  reducer: persistedReducer,
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      immutableCheck: false,
+      serializableCheck: false,
+      thunk: true,
+    }),
 });
 
 export default store;

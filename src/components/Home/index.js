@@ -87,7 +87,7 @@ const Home = () => {
 
   useEffect(() => {
     // getALLproduct();
-    console.log('dataRow', dataRow);
+    //console.log('dataRow', dataRow);
     setproductList(dataRow);
   }, [dataRow]);
   return (

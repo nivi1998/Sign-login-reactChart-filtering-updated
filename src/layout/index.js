@@ -27,7 +27,7 @@ const Layout = ({ children }) => {
 
   return !disableLayout ? (
     <div className={`Layout d-flex flex-column w-100 h-100`}>
-      {pathname === '/' ? (
+      {pathname === '/' || pathname === '/register' ? (
         ''
       ) : (
         <div className="Layout__header">
@@ -39,7 +39,7 @@ const Layout = ({ children }) => {
         onScroll={handleInfiniteScrolling}
         className="Layout__wrapper h-100 overflow-auto"
       >
-        {pathname === '/' ? (
+        {pathname === '/' || pathname === '/register' ? (
           <div onScroll={handleInfiniteScrolling} className="childrenStyle ">
             {children}
           </div>

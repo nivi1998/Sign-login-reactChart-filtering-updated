@@ -11,7 +11,7 @@ const Header = () => {
   const [value, setValue] = useState('topnav');
 
   const logout = () => {
-    dispatch(USER_LOGOUT());
+    dispatch(USER_LOGOUT(false));
   };
 
   return (
